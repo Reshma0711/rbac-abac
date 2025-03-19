@@ -4,8 +4,15 @@ const app=express()
 const port=process.env.PORT
 const dbConnect=require("./db")
 dbConnect();
+const projectRoutes=require("./routes/project")
+const errorHandler = require("./middlewares/errorHandler")
+app.use(express.json())
 
 
-app.listen(()=>{
-    console.log(`Server is running at ${port}`)
+app.use("/projects",projectRoutes)
+
+app.use(errorHandler)
+
+app.listen(port,()=>{
+    console.log(`Server is running on ${port}`)
 })
