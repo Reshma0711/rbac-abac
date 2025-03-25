@@ -6,6 +6,7 @@ exports.canViewProject = (user, project) => {
   );
 };
 
+
 exports.canUpdateproject = (user, project) => {
   return (
     user.role === "admin" ||
@@ -13,6 +14,7 @@ exports.canUpdateproject = (user, project) => {
     project.team.includes(user.id)
   );
 };
+
 
 
 
