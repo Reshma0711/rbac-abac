@@ -16,4 +16,5 @@ router.get("/", authentication, verifyAdmin, getAllRoles); // Get All Roles
 router.put("/:id", authentication, verifyAdmin, updateRole); // update Role
 router.delete("/:id", authentication, verifyAdmin, deleteRole); // delete Role
 
+
 module.exports = router;

@@ -12,7 +12,12 @@ const { verifyAdmin, checkPermission } = require("../middlewares/role");
 const router = express.Router();
 
 // Admin Creates User with Credentials
-router.post("/create", authentication, checkPermission("employee", "read"), createUserByAdmin);
+router.post(
+  "/create",
+  authentication,
+  checkPermission("employee", "create"),
+  createUserByAdmin
+);
 
 // User Login
 router.post("/login", loginUser);
@@ -24,6 +29,11 @@ router.get("/:id", authentication, getUserProfile);
 router.put("/:id", authentication, updateProfile);
 
 // delete Profile
-router.delete("/:id", authentication, verifyAdmin, deleteProfile);
+router.delete(
+  "/:id",
+  authentication,
+  checkPermission("employee", "delete"),
+  deleteProfile
+);
 
 module.exports = router;

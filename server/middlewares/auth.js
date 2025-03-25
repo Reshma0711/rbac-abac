@@ -1,8 +1,9 @@
 const jwt = require("jsonwebtoken");
 const jwtSecretKey = process.env.JWT_SECRET_KEY;
 const handlerResponse = require("../utils/handlerResponse");
-
 const User = require("../models/user"); // Correct path to User model
+
+
 
 const authentication = async (req, res, next) => {
   let token;
@@ -34,6 +35,7 @@ const authentication = async (req, res, next) => {
     return res.status(401).json({ message: "No token, authorization denied" });
   }
 };
+
 
 const verifyToken = (req, res, next) => {
   let token;

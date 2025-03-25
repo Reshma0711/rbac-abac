@@ -9,7 +9,7 @@ const {checkPermission}= require("../middlewares/role")
 // const { canViewProject, canUpdateproject } = require("../policies/project");
 const router = express.Router();
 
-
+         
 
 router.get("/:id", authentication, checkPermission("project", "read"), getProject);
 router.post("/", authentication, checkPermission("project", "create"), createProject);
